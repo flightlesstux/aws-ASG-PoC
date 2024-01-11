@@ -2,7 +2,7 @@
 
 This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associated load balancer and VPC. It's designed to demonstrate autoscaling capabilities on AWS.
 
-![Topology Image](topology.png){width=850px}
+![Topology Image](topology.png)
 
 ## Prerequisites 📋
 
