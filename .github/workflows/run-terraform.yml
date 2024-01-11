@@ -4,7 +4,10 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch: # Allows manual triggering
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   terraform:
@@ -40,14 +43,13 @@ jobs:
       id: plan
       run: terraform plan
 
-    # Optional: Apply step, be cautious with automated apply in CI/CD pipelines
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'pull_request'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
 
   destroy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' # Only run this job if manually triggered
+    if: github.event_name == 'workflow_dispatch'
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -61,6 +63,10 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: '1.2.0'
+
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt
 
     - name: Terraform Init
       run: terraform init
