@@ -12,7 +12,7 @@ provider "aws" {
   
   default_tags {
     tags = {
-      ManagedBy   = "Terraform"
+      ManagedBy = "Terraform"
     }
   }
 }
@@ -35,9 +35,9 @@ module "autoscaling" {
   source = "./modules/autoscaling"
   config = yamldecode(file("./config.yaml"))
 
-  private_subnet_ids = module.vpc.private_subnet_ids
-  nat_gateway_id = module.vpc.nat_gateway_id
+  private_subnet_ids     = module.vpc.private_subnet_ids
+  nat_gateway_id         = module.vpc.nat_gateway_id
   private_route_table_id = module.vpc.private_route_table_id
-  alb_sg = module.load_balancer.alb_sg
-  vpc_id = module.vpc.vpc_id
+  alb_sg                 = module.load_balancer.alb_sg
+  vpc_id                 = module.vpc.vpc_id
 }
