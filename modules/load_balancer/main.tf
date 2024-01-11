@@ -55,7 +55,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_security_group" "alb_sg" {
-  name        = "${var.config.launch_template.instance_name}-sg"
+  name        = "${var.config.launch_template.instance_name}-alb-sg"
   description = "Security group for ALB Public"
   vpc_id      = var.vpc_id
 
@@ -79,7 +79,7 @@ resource "aws_security_group" "alb_sg" {
 
     tags = merge(
       {
-        "Name" = "${var.config.launch_template.instance_name}-sg"
+        "Name" = "${var.config.launch_template.instance_name}-alb-sg-1"
       },
       var.config.resources.tags
     )

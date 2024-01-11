@@ -93,7 +93,7 @@ resource "aws_autoscaling_group" "asg" {
 }
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.config.launch_template.instance_name}"
+  name        = "${var.config.launch_template.instance_name}-1"
   description = "Security group for EC2 instances"
   vpc_id      = var.vpc_id
 
