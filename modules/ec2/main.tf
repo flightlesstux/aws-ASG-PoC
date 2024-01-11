@@ -117,7 +117,7 @@ resource "aws_security_group" "ec2_sg" {
 
     tags = merge(
       {
-        "Name" = "${var.config.launch_template.instance_name}-sg"
+        "Name" = "${var.config.launch_template.instance_name}-sg-1"
       },
       var.config.resources.tags
     )
