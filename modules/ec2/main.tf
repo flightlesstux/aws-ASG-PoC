@@ -102,6 +102,7 @@ resource "aws_security_group" "ec2_sg" {
     to_port     = 80
     protocol    = "tcp"
     security_groups = [ var.alb_sg ]
+    description = "Allow TCP 80 from only Application Loadbalancer"
   }
 
   egress {
@@ -109,6 +110,7 @@ resource "aws_security_group" "ec2_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow access to all over the world from inside of VPC"
   }
 
   lifecycle {
