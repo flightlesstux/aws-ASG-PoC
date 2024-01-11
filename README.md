@@ -6,7 +6,7 @@ This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associate
 
 ## Prerequisites 📋
 
-- Terraform installed (v1.2.0 or higher recommended).
+- Terraform installed (v1.0.0 or higher recommended).
 - AWS CLI installed and configured with appropriate credentials.
 - Access to an AWS account with permissions to create ASGs, Load Balancers, and VPCs or you can use the IAM Policy below:
 ```
