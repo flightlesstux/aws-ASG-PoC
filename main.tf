@@ -28,11 +28,11 @@ module "load_balancer" {
   
   public_subnet_ids = module.vpc.public_subnet_ids
   vpc_id            = module.vpc.vpc_id
-  asg_name          = module.autoscaling.asg_name
+  asg_name          = module.ec2.asg_name
 }
 
-module "autoscaling" {
-  source = "./modules/autoscaling"
+module "ec2" {
+  source = "./modules/ec2"
   config = yamldecode(file("./config.yaml"))
 
   private_subnet_ids     = module.vpc.private_subnet_ids
