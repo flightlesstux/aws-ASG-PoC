@@ -23,6 +23,8 @@ This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associate
                 "ec2:AssociateRouteTable",
                 "ec2:AttachInternetGateway",
                 "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:CreateNatGateway",
                 "ec2:CreateInternetGateway",
                 "ec2:CreateRoute",
                 "ec2:CreateRouteTable",
@@ -33,6 +35,9 @@ This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associate
                 "ec2:ModifyVpcAttribute",
                 "ec2:ReleaseAddress",
                 "ec2:RunInstances",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:DeleteNatGateway",
                 "ec2:TerminateInstances",
                 "ec2:DeleteInternetGateway",
                 "ec2:DeleteRouteTable",
@@ -40,7 +45,8 @@ This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associate
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVpc",
                 "ec2:DetachInternetGateway",
-                "ec2:DisassociateRouteTable"
+                "ec2:DisassociateRouteTable",
+                "ec2:ModifySubnetAttribute"
             ],
             "Resource": "*"
         }
