@@ -46,6 +46,7 @@ This Terraform project sets up an AWS Auto Scaling Group (ASG) with an associate
                 "ec2:DeleteSecurityGroup",
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVpc",
+                "ec2:DeleteLaunchTemplate",
                 "ec2:DetachInternetGateway",
                 "ec2:DisassociateRouteTable"
             ],
